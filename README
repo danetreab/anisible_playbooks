@@ -1,0 +1,17 @@
+- install ansible
+
+# Using package manager (e.g., on Ubuntu)
+sudo apt update
+sudo apt install ansible
+
+- setup this project ansible.cfg as ansible configuration file
+
+add export ANSIBLE_CONFIG=project_path/ansible.cfg to your .bashrc or .zshrc
+
+- add host to inventory file
+
+# Path: inventory/hosts
+
+- ping all hosts as root user
+
+ansible all -m ping -u root -i inventory/hosts

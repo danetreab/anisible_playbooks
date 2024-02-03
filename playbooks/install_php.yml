@@ -1,0 +1,29 @@
+- name: Install PHP
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install PHP
+      apt:
+        name: php
+        state: present
+    - name: Install PHP modules
+      apt:
+        name: 
+          - php-mysql
+          - php-curl
+          - php-gd
+          - php-pear
+          - php-imagick
+          - php-imap
+          - php-tidy
+          - php-xmlrpc
+          - php-xsl
+          - php-fpm
+          - php-cli
+          - php-xml
+          - php-mbstring
+        state: present
+    - name: Restart Apache Server
+      service:
+        name: apache2
+        state: restarted

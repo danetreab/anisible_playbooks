@@ -1,0 +1,13 @@
+
+- name: Install composer
+  hosts: all
+  become: yes
+  tasks:
+    - name: Install composer
+      shell: curl -sS https://getcomposer.org/installer | php
+      args:
+        chdir: /tmp
+    - name: Move composer to /usr/local/bin
+      shell: mv /tmp/composer.phar /usr/local/bin/composer
+    - name: Make composer executable
+      shell: chmod +x /usr/local/bin/composer
