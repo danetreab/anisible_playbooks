@@ -1,0 +1,15 @@
+- name: Install Node.js
+  hosts: all
+  become: yes
+  tasks:
+    - name: Installing Node.js with Apt Using a NodeSource PPA
+      get_url:
+        url: https://deb.nodesource.com/setup_18.x
+        dest: /tmp/nodesource_setup.sh
+        mode: "u+x,g+x"
+    - name: Run the NodeSource setup script
+      command: /tmp/nodesource_setup.sh
+    - name: Install Node.js
+      apt:
+        name: nodejs
+        state: present
