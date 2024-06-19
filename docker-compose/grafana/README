@@ -1,0 +1,7 @@
+
+create a "docker" folder 
+
+
+grant permission
+
+sudo chown -R <user> <docker-dir> && chmod -R 777 <docker-dir>
